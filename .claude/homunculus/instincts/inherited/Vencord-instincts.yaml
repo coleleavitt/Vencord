@@ -1,0 +1,637 @@
+# Instincts generated from https://github.com/coleleavitt/Vencord
+# Generated: 2026-07-17T19:09:23.589Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Vencord-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Commit Length
+
+## Action
+
+Keep commit messages concise (~42 characters)
+
+## Evidence
+
+- Average commit message length: 42 chars
+- Based on 83 commits
+
+---
+id: Vencord-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: Vencord-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Vencord-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Vencord-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: api, components, main, plugins, shared
+
+---
+id: Vencord-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: Vencord-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/components/settings/tabs/plugins/*, src/plugins/translate/*, src/plugins/vencordtoolbox/*
+
+---
+id: Vencord-workflow-plugin-bugfix-update
+trigger: "when doing plugin bugfix update"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Plugin Bugfix Update
+
+## Action
+
+Follow the plugin-bugfix-update workflow:
+1. Identify plugin(s) with bug or needed update
+2. Edit the plugin's main file (e.g., index.tsx or index.ts)
+3. Optionally update related component or utility files within the plugin folder
+4. Commit with a message referencing the plugin(s) and the fix
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: src/plugins/*/index.tsx, src/plugins/*/index.ts, src/plugins/*/components/*.tsx
+
+---
+id: Vencord-workflow-add-new-plugin
+trigger: "when doing add new plugin"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Add New Plugin
+
+## Action
+
+Follow the add-new-plugin workflow:
+1. Create new plugin folder under src/plugins
+2. Add main plugin file (index.ts or index.tsx)
+3. Update src/utils/constants.ts to register the plugin
+4. Commit with a message referencing the new plugin
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: src/plugins/*/index.tsx, src/plugins/*/index.ts, src/utils/constants.ts
+
+---
+id: Vencord-workflow-settings-ui-enhancement
+trigger: "when doing settings ui enhancement"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Settings Ui Enhancement
+
+## Action
+
+Follow the settings-ui-enhancement workflow:
+1. Edit settings tab/component files (e.g., src/components/settings/tabs/*)
+2. Optionally update related plugin settings files
+3. Commit with message referencing settings changes
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: src/components/settings/tabs/**/*.tsx, src/plugins/_core/settings.tsx, src/plugins/*/settings.tsx
+
+---
+id: Vencord-workflow-plugin-settings-removal-or-refactor
+trigger: "when doing plugin settings removal or refactor"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Plugin Settings Removal Or Refactor
+
+## Action
+
+Follow the plugin-settings-removal-or-refactor workflow:
+1. Identify deprecated or refactored field
+2. Edit all affected plugin files to remove or update the field
+3. Edit shared settings components and types
+4. Commit with a message referencing the field removal/refactor
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: src/plugins/*/index.tsx, src/components/settings/tabs/plugins/components/*.tsx, src/components/settings/tabs/plugins/index.tsx
+
+---
+id: Vencord-workflow-version-bump-release
+trigger: "when doing version bump release"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Version Bump Release
+
+## Action
+
+Follow the version-bump-release workflow:
+1. Update version number in package.json
+2. Optionally update src/plugins/vencordToolbox/index.tsx or similar
+3. Commit with version number as message
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: package.json, src/plugins/vencordToolbox/index.tsx
+
+---
+id: Vencord-workflow-modal-ui-refactor-or-migration
+trigger: "when doing modal ui refactor or migration"
+confidence: 0.55
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/coleleavitt/Vencord
+---
+
+# Vencord Workflow Modal Ui Refactor Or Migration
+
+## Action
+
+Follow the modal-ui-refactor-or-migration workflow:
+1. Edit or add modal component files in core and plugins
+2. Update related CSS and type definitions
+3. Commit with a message referencing modal migration or refactor
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~1x per month
+- Files: src/components/settings/tabs/plugins/*Modal*.tsx, src/plugins/*/components/*Modal*.tsx, src/plugins/*/styles.css
+
+---
+id: vencord-instinct-file-naming-camelCase
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct File Naming CamelCase
+
+## Action
+
+Name the file using camelCase (e.g., myComponent.tsx)
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Seen in src/components/settings/tabs/plugins/index.tsx
+
+---
+id: vencord-instinct-function-naming-camelCase
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Function Naming CamelCase
+
+## Action
+
+Name the function using camelCase (e.g., handleClick)
+
+## Evidence
+
+- Pattern in namingConventions.functions
+- Seen in src/plugins/reviewDB/index.tsx
+
+---
+id: vencord-instinct-class-naming-PascalCase
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Class Naming PascalCase
+
+## Action
+
+Name the class using PascalCase (e.g., PluginManager)
+
+## Evidence
+
+- Pattern in namingConventions.classes
+- Seen in src/plugins/implicitRelationships/index.ts
+
+---
+id: vencord-instinct-constant-naming-SCREAMING_SNAKE_CASE
+trigger: "When defining a constant"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Constant Naming SCREAMING_SNAKE_CASE
+
+## Action
+
+Name the constant using SCREAMING_SNAKE_CASE (e.g., DEFAULT_TIMEOUT)
+
+## Evidence
+
+- Pattern in namingConventions.constants
+- Seen in src/utils/constants.ts
+
+---
+id: vencord-instinct-imports-relative
+trigger: "When importing modules within the codebase"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Imports Relative
+
+## Action
+
+Use relative import paths (e.g., import x from '../utils/x')
+
+## Evidence
+
+- Pattern in importStyle
+- Seen in src/plugins/*/index.tsx
+
+---
+id: vencord-instinct-exports-named
+trigger: "When exporting functions, classes, or constants"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Exports Named
+
+## Action
+
+Use named exports (e.g., export function foo())
+
+## Evidence
+
+- Pattern in exportStyle
+- Seen in src/plugins/*/index.tsx
+
+---
+id: vencord-instinct-testing-separate-location
+trigger: "When writing tests for a feature or plugin"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Testing Separate Location
+
+## Action
+
+Place test files in a separate test directory, not alongside source files
+
+## Evidence
+
+- Pattern in architecture.testLocation
+- Seen in folderStructure
+
+---
+id: vencord-instinct-testing-after-feature
+trigger: "When implementing a new feature or plugin"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Testing After Feature
+
+## Action
+
+Write tests for the feature immediately after implementation, before documentation
+
+## Evidence
+
+- Pattern in feature-development.commitSequence
+- Seen in workflow 'feature-development'
+
+---
+id: vencord-instinct-commit-prefix
+trigger: "When writing a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Commit Prefix
+
+## Action
+
+Prefix the commit message with the affected area or plugin (e.g., Settings:, Translate:, fix)
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in commit 'Settings: add support for searching acronyms like BF & SHC'
+
+---
+id: vencord-instinct-commit-reference-plugin
+trigger: "When committing changes to a plugin"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Commit Reference Plugin
+
+## Action
+
+Reference the plugin name(s) in the commit message
+
+## Evidence
+
+- Pattern in commits.examples
+- Seen in commit 'fix CallTimer, ReviewDB, SHC & ImplicitRelationships (#4158)'
+
+---
+id: vencord-instinct-commit-average-length
+trigger: "When writing a commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Commit Average Length
+
+## Action
+
+Keep the commit message concise, around 40-50 characters
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Seen in commit examples
+
+---
+id: vencord-instinct-plugin-bugfix-update
+trigger: "When a bug is found or an update is needed in an existing plugin"
+confidence: 0.98
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Plugin Bugfix Update
+
+## Action
+
+Edit the plugin's main file (index.tsx or index.ts), optionally update related files, and commit with a message referencing the plugin(s) and the fix
+
+## Evidence
+
+- Workflow 'plugin-bugfix-update'
+- Seen in commits like 'fix CallTimer, ReviewDB, SHC & ImplicitRelationships (#4158)'
+
+---
+id: vencord-instinct-add-new-plugin
+trigger: "When adding a new plugin to Vencord"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Add New Plugin
+
+## Action
+
+Create a new folder under src/plugins, add index.ts or index.tsx, update src/utils/constants.ts, and commit referencing the new plugin
+
+## Evidence
+
+- Workflow 'add-new-plugin'
+- Pattern in commit sequences and files involved
+
+---
+id: vencord-instinct-settings-ui-enhancement
+trigger: "When enhancing or fixing settings UI"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Settings Ui Enhancement
+
+## Action
+
+Edit settings tab/component files and optionally related plugin settings files, then commit referencing settings changes
+
+## Evidence
+
+- Workflow 'settings-ui-enhancement'
+- Seen in commits like 'Settings: add support for searching acronyms like BF & SHC'
+
+---
+id: vencord-instinct-plugin-settings-removal-or-refactor
+trigger: "When deprecating or refactoring a plugin setting across the codebase"
+confidence: 0.87
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Plugin Settings Removal Or Refactor
+
+## Action
+
+Edit all affected plugin files, shared settings components, and types, then commit referencing the field removal/refactor
+
+## Evidence
+
+- Workflow 'plugin-settings-removal-or-refactor'
+- Pattern in files involved
+
+---
+id: vencord-instinct-version-bump-release
+trigger: "When preparing a new release"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Version Bump Release
+
+## Action
+
+Update version number in package.json, optionally update src/plugins/vencordToolbox/index.tsx, and commit with version number as message
+
+## Evidence
+
+- Workflow 'version-bump-release'
+- Pattern in files involved
+
+---
+id: vencord-instinct-modal-ui-refactor-or-migration
+trigger: "When updating or migrating modal UI components"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: coleleavitt/Vencord
+---
+
+# Vencord Instinct Modal Ui Refactor Or Migration
+
+## Action
+
+Edit or add modal component files in core and plugins, update related CSS and type definitions, and commit referencing modal migration or refactor
+
+## Evidence
+
+- Workflow 'modal-ui-refactor-or-migration'
+- Pattern in files involved
+
